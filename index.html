@@ -560,12 +560,55 @@
     /* ── DIVIDER ── */
     .section-divider { width: 100%; height: 1px; background: var(--border); }
 
-    /* ── ARROW ── */
-    .arrow-icon {
-      display: inline-block;
-      width: 14px; height: 14px;
-      vertical-align: middle;
+    /* ── PROJECT THUMB ── */
+    .project-thumb {
+      width: 100%;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+      object-position: top;
+      display: block;
     }
+
+    /* ── CERT MODAL ── */
+    .cert-card { cursor: pointer; }
+
+    #cert-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 999;
+      background: rgba(0,0,0,0.9);
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+    #cert-modal.open { display: flex; }
+
+    #cert-modal img {
+      max-width: 90vw;
+      max-height: 88vh;
+      border-radius: 6px;
+      box-shadow: 0 0 60px rgba(0,0,0,0.8);
+      object-fit: contain;
+    }
+
+    #cert-modal-close {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      background: none;
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-size: 1.4rem;
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    #cert-modal-close:hover { border-color: var(--accent); color: var(--accent); }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
@@ -709,7 +752,7 @@
       <h2 class="section-title">Certificaciones</h2>
       <div class="cert-grid">
 
-        <div class="cert-card fade-in">
+        <div class="cert-card fade-in" onclick="openCert('cert-desarrollo.jpg')">
           <div class="cert-header">
             <span class="cert-institution">Coderhouse</span>
             <span class="cert-badge">★ Top 10</span>
@@ -725,9 +768,10 @@
               38 hs · 10 semanas
             </span>
           </div>
+          <span style="font-size:0.72rem;color:var(--muted);margin-top:0.25rem;">Click para ver certificado →</span>
         </div>
 
-        <div class="cert-card fade-in">
+        <div class="cert-card fade-in" onclick="openCert('cert-javascript.jpg')">
           <div class="cert-header">
             <span class="cert-institution">Coderhouse</span>
             <span class="cert-badge">★ Top 10</span>
@@ -743,9 +787,10 @@
               36 hs · 9 semanas
             </span>
           </div>
+          <span style="font-size:0.72rem;color:var(--muted);margin-top:0.25rem;">Click para ver certificado →</span>
         </div>
 
-        <div class="cert-card fade-in">
+        <div class="cert-card fade-in" onclick="openCert('cert-wordpress.jpg')">
           <div class="cert-header">
             <span class="cert-institution">Coderhouse</span>
           </div>
@@ -760,6 +805,7 @@
               20 hs · 5 semanas
             </span>
           </div>
+          <span style="font-size:0.72rem;color:var(--muted);margin-top:0.25rem;">Click para ver certificado →</span>
         </div>
 
       </div>
@@ -776,7 +822,7 @@
       <div class="projects-grid">
 
         <div class="project-card fade-in">
-          <div class="project-thumb-placeholder">⚙️</div>
+          <img src="img-gea.jpg" alt="Oleo Hidráulica GEA" class="project-thumb" />
           <div class="project-body">
             <div class="project-type">Sitio Institucional · Industria</div>
             <div class="project-name">Oleo Hidráulica GEA</div>
@@ -792,7 +838,7 @@
         </div>
 
         <div class="project-card fade-in">
-          <div class="project-thumb-placeholder">🔒</div>
+          <img src="img-pandora.jpg" alt="Pandora Security" class="project-thumb" />
           <div class="project-body">
             <div class="project-type">Sitio Institucional · Seguridad</div>
             <div class="project-name">Pandora Security</div>
@@ -808,7 +854,7 @@
         </div>
 
         <div class="project-card fade-in">
-          <div class="project-thumb-placeholder">🎸</div>
+          <img src="img-kiosquin.jpg" alt="Kiosquín Cosquín Rock" class="project-thumb" />
           <div class="project-body">
             <div class="project-type">App Web · Eventos</div>
             <div class="project-name">Kiosquín — Cosquín Rock 2026</div>
@@ -844,7 +890,7 @@
             <svg class="contact-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
             nicoxcat24@gmail.com
           </a>
-          <a href="https://wa.me/54" target="_blank" rel="noopener" class="contact-link">
+          <a href="https://wa.me/54315559437" target="_blank" rel="noopener" class="contact-link">
             <svg class="contact-link-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12.05 2C6.495 2 2 6.495 2 12.05c0 1.874.515 3.623 1.411 5.127L2 22l4.991-1.389A9.95 9.95 0 0012.05 22c5.554 0 10.05-4.496 10.05-10.05S17.605 2 12.05 2zm0 18.32a8.24 8.24 0 01-4.201-1.151l-.302-.179-3.12.868.883-3.044-.196-.311A8.245 8.245 0 013.68 12.05c0-4.612 3.758-8.37 8.37-8.37 4.613 0 8.371 3.758 8.371 8.37 0 4.612-3.758 8.32-8.37 8.32z"/></svg>
             WhatsApp
           </a>
@@ -878,6 +924,12 @@
     </div>
   </section>
 
+  <!-- CERT MODAL -->
+  <div id="cert-modal" onclick="closeCert(event)">
+    <button id="cert-modal-close" onclick="closeCert()">✕</button>
+    <img id="cert-modal-img" src="" alt="Certificado" />
+  </div>
+
   <!-- FOOTER -->
   <footer>
     <span>© 2026 Nicolás Peralta — Desarrollador Web</span>
@@ -885,6 +937,20 @@
   </footer>
 
   <script>
+    function openCert(src) {
+      document.getElementById('cert-modal-img').src = src;
+      document.getElementById('cert-modal').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeCert(e) {
+      if (e && e.target === document.getElementById('cert-modal-img')) return;
+      document.getElementById('cert-modal').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeCert(); });
+
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(el => {
         if (el.isIntersecting) {
