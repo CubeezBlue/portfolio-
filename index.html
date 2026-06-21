@@ -65,48 +65,49 @@
     /* ── HERO ── */
     #hero {
       min-height: 100vh;
-      display: grid;
-      grid-template-columns: 1fr auto;
+      display: flex;
       align-items: center;
-      gap: 4rem;
       padding: 8rem 4rem 4rem;
       position: relative;
       overflow: hidden;
     }
 
-    .hero-bg {
+    .hero-content { position: relative; z-index: 2; }
+
+    /* foto derecha del hero */
+    .hero-side-img {
       position: absolute;
-      inset: 0;
-      width: 100%;
+      top: 0; right: 0;
+      width: 55%;
       height: 100%;
-      background-image: url('foto-portada.jpg');
-      background-size: cover;
-      background-position: center center;
-      background-repeat: no-repeat;
-      opacity: 0.55;
       z-index: 0;
+      overflow: hidden;
     }
 
-    .hero-bg-gradient {
-      position: absolute;
-      inset: 0;
+    .hero-side-img img {
       width: 100%;
       height: 100%;
-      background: linear-gradient(
-        to bottom,
-        rgba(10,10,10,0.4) 0%,
-        rgba(10,10,10,0.6) 60%,
-        rgba(10,10,10,0.95) 100%
-      ), linear-gradient(
-        to right,
-        rgba(10,10,10,0.7) 0%,
-        rgba(10,10,10,0.1) 60%,
-        rgba(10,10,10,0.1) 100%
-      );
+      object-fit: cover;
+      object-position: center;
+      opacity: 0.35;
+      display: block;
+    }
+
+    .hero-side-img::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, var(--bg) 0%, transparent 40%);
       z-index: 1;
     }
 
-    .hero-content { position: relative; z-index: 2; }
+    .hero-side-img::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, transparent 60%, var(--bg) 100%);
+      z-index: 1;
+    }
 
     .hero-label {
       display: inline-flex;
@@ -146,37 +147,6 @@
 
     .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
 
-    /* foto hero */
-    .hero-photo-wrap {
-      position: relative;
-      z-index: 2;
-      flex-shrink: 0;
-    }
-
-    .hero-photo {
-      width: 260px;
-      height: 260px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 2px solid var(--accent);
-      box-shadow: 0 0 40px rgba(0,255,136,0.2);
-      display: block;
-    }
-
-    .hero-photo-placeholder {
-      width: 260px;
-      height: 260px;
-      border-radius: 50%;
-      background: var(--surface);
-      border: 2px dashed var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--muted);
-      font-size: 0.75rem;
-      text-align: center;
-      padding: 1rem;
-    }
 
     .hero-scroll {
       position: absolute;
@@ -627,8 +597,7 @@
 
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
-      #hero { grid-template-columns: 1fr; }
-      .hero-photo-wrap { display: none; }
+      .hero-side-img { width: 100%; opacity: 0.15; }
       .sobre-grid { grid-template-columns: 1fr; gap: 2.5rem; }
       .sobre-foto, .sobre-foto-placeholder { width: 120px; height: 150px; }
     }
@@ -668,8 +637,9 @@
 
   <!-- HERO -->
   <section id="hero">
-    <div class="hero-bg"></div>
-    <div class="hero-bg-gradient"></div>
+    <div class="hero-side-img">
+      <img src="foto-portada.png" alt="" />
+    </div>
 
     <div class="hero-content">
       <span class="hero-label">Desarrollador Web Freelance</span>
@@ -686,11 +656,6 @@
         <a href="#proyectos" class="btn btn-primary">Ver proyectos</a>
         <a href="#contacto" class="btn btn-outline">Hablemos</a>
       </div>
-    </div>
-
-    <div class="hero-photo-wrap">
-      <img src="foto-perfil.jpg" alt="Nicolás Peralta" class="hero-photo"
-           onerror="this.outerHTML='<div class=\'hero-photo-placeholder\'>foto-perfil.jpg</div>'" />
     </div>
 
     <div class="hero-scroll">
