@@ -551,6 +551,16 @@
           </div>
         </div>
 
+        <div class="project-card fade-in">
+          <img src="img-cafeblog.jpg" alt="Blog de Café" class="project-thumb" />
+          <div class="project-body">
+            <div class="project-type">Blog · Lifestyle</div>
+            <div class="project-name">Blog de Café</div>
+            <p class="project-desc">Blog temático sobre cultura del café. Diseño limpio y editorial, con foco en la lectura y la experiencia visual del contenido.</p>
+            <a href="https://thirdproject3.netlify.app/" target="_blank" rel="noopener" class="project-link">Ver proyecto <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
@@ -569,9 +579,9 @@
             <svg class="contact-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
             nicoxcat24@gmail.com
           </a>
-          <a href="https://wa.me/54315559437" target="_blank" rel="noopener" class="contact-link">
+          <a href="https://wa.me/543515559437" target="_blank" rel="noopener" class="contact-link">
             <svg class="contact-link-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12.05 2C6.495 2 2 6.495 2 12.05c0 1.874.515 3.623 1.411 5.127L2 22l4.991-1.389A9.95 9.95 0 0012.05 22c5.554 0 10.05-4.496 10.05-10.05S17.605 2 12.05 2zm0 18.32a8.24 8.24 0 01-4.201-1.151l-.302-.179-3.12.868.883-3.044-.196-.311A8.245 8.245 0 013.68 12.05c0-4.612 3.758-8.37 8.37-8.37 4.613 0 8.371 3.758 8.371 8.37 0 4.612-3.758 8.32-8.37 8.32z"/></svg>
-            +54 3155 59437
+            +54 351 555 9437
           </a>
           <a href="https://www.linkedin.com/in/nicolas-peralta-90514b1ba/" target="_blank" rel="noopener" class="contact-link">
             <svg class="contact-link-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
@@ -579,7 +589,9 @@
           </a>
         </div>
       </div>
-      <form class="contact-form" onsubmit="handleForm(event)">
+      <form class="contact-form" name="contacto" method="POST" data-netlify="true" netlify-honeypot="bot-field" onsubmit="handleForm(event)">
+        <input type="hidden" name="form-name" value="contacto" />
+        <input type="hidden" name="bot-field" />
         <div class="form-group"><label for="nombre">Nombre</label><input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required /></div>
         <div class="form-group"><label for="email">Email</label><input type="email" id="email" name="email" placeholder="tu@email.com" required /></div>
         <div class="form-group"><label for="mensaje">Mensaje</label><textarea id="mensaje" name="mensaje" placeholder="Contame qué necesitás..." required></textarea></div>
@@ -596,7 +608,7 @@
   </div>
 
   <!-- WhatsApp flotante -->
-  <a href="https://wa.me/54315559437" target="_blank" rel="noopener" class="wa-float" aria-label="WhatsApp">
+  <a href="https://wa.me/543515559437" target="_blank" rel="noopener" class="wa-float" aria-label="WhatsApp">
     <span class="wa-tooltip">¡Escribime!</span>
     <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12.05 2C6.495 2 2 6.495 2 12.05c0 1.874.515 3.623 1.411 5.127L2 22l4.991-1.389A9.95 9.95 0 0012.05 22c5.554 0 10.05-4.496 10.05-10.05S17.605 2 12.05 2zm0 18.32a8.24 8.24 0 01-4.201-1.151l-.302-.179-3.12.868.883-3.044-.196-.311A8.245 8.245 0 013.68 12.05c0-4.612 3.758-8.37 8.37-8.37 4.613 0 8.371 3.758 8.371 8.37 0 4.612-3.758 8.32-8.37 8.32z"/></svg>
   </a>
